@@ -1,0 +1,4 @@
+containers: "docker ps"
+run_container: "docker exec -it $@ /bin/bash"
+run_postgres: "psql -U postgres"
+postgres_comands: [table: "\d", schema_migrations: "select * from  schema_migrations;", dirty_false: "update schema_migrations set version='000001', dirty=false;"]
