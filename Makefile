@@ -1,4 +1,4 @@
-PHONY: run_db create_migration make_migration_up make_migration_down
+PHONY: run_db create_migration make_migration_up make_migration_down go_get run_server
 
 
 run_db:
@@ -12,3 +12,9 @@ make_migration_up:
 
 make_migration_down:
 	migrate -path ./schema -database 'postgres://postgres:qwerty@localhost:5436/postgres?sslmode=disable' down
+
+go_get:
+	go get -u github.com/$(package)
+
+run_server:
+	go run cmd/main.go
